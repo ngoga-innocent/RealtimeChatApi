@@ -125,8 +125,17 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels.layers.InMemoryChannelLayer"
+#     }
+# }
 CHANNEL_LAYERS = {
     "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer"
-    }
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": ["redis://default:81d23b3e61034db3b0b174a27b75125c@gusc1-workable-wolf-30976.upstash.io:30976"],
+        },
+    },
 }
+# Redis_url='redis-cli --tls -u redis://default:81d23b3e61034db3b0b174a27b75125c@gusc1-workable-wolf-30976.upstash.io:30976'
