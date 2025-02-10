@@ -17,7 +17,7 @@ DEBUG = True
 
 # ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['*']  # OR ['192.168.8.101', 'localhost']
-CSRF_TRUSTED_ORIGINS = ["https://realtimechatapi-zwki.onrender.com"]
+CSRF_TRUSTED_ORIGINS = ["https://realtimechatapi-zwki.onrender.com","ws://realtimechatapi-zwki.onrender.com"]
 
 
 # Application definition
