@@ -51,6 +51,9 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'NewChat.urls'
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',  
+    ],
    
     'DEFAULT_AUTHENTICATION_CLASSES': (
         
