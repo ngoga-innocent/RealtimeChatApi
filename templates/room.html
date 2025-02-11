@@ -240,6 +240,7 @@
     </div>
   </div>
   <script>
+    const csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value; 
     const url=`ws://${window.location.host}/ws/chat/{{room_name}}/`;
     console.log('establishing connection',url);
     const websocket=new WebSocket(url);
@@ -252,7 +253,8 @@
         websocket.send(JSON.stringify({
             message:message,
             room_name:"{{room_name}}",
-            sender:"{{username}}"
+            sender:"{{username}}",
+            csrfmiddlewaretoken: csrfToken 
         }));
         document.getElementById('message').value='';
     }
