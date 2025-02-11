@@ -137,8 +137,17 @@ CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": ["redis://default:81d23b3e61034db3b0b174a27b75125c@gusc1-workable-wolf-30976.upstash.io:30976"],
+            "hosts": [
+                {
+                    "address": "redis://default:81d23b3e61034db3b0b174a27b75125c@gusc1-workable-wolf-30976.upstash.io:30976",
+                    "db": 0,
+                    "ssl": True,  # Ensures secure connection
+                    "socket_keepalive": True,
+                    "retry_on_timeout": True,
+                }
+            ],
         },
     },
 }
+
 # Redis_url='redis-cli --tls -u redis://default:81d23b3e61034db3b0b174a27b75125c@gusc1-workable-wolf-30976.upstash.io:30976'
